@@ -38,7 +38,7 @@
                             th:errors="*{firstName}"></span>
                     </div>
                     <div class="form-group" th:classappend="${#fields.hasErrors('middleName')} ? 'has-error'">
-                        <label class="control-label">Second name</label>
+                        <label class="control-label">Middle name</label>
                         <input type="text" class="form-control" th:field="*{middleName}" pattern="[A-Za-z]+"
                             title="Only letters allowed">
                         <span class="help-block" th:if="${#fields.hasErrors('middleName')}"
