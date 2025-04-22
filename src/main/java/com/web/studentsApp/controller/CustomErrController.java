@@ -16,17 +16,17 @@ public class CustomErrController implements ErrorController{
         if (id == 0) {
             throw new ResourceNotFoundException("Student ", "Id", id+"");
         }
-        return "Recurso encontrado: " + id;
+        return "Resource not found: " + id;
     }
 
     @GetMapping("/bad-request")
     public String badRequestExample() throws BadRequestException {
-        throw new BadRequestException("Parámetros de solicitud inválidos");
+        throw new BadRequestException("Invalid request values.");
     }
 
     @GetMapping("/server-error")
     public String serverErrorExample() {
-        throw new RuntimeException("Error interno inesperado");
+        throw new RuntimeException("Unexpected internal server error.");
     }
 
 }

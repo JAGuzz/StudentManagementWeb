@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
-    <title>Detalles del Estudiante</title>
+    <title>Student details</title>
     <style>
         .detail-section {
             margin-bottom: 30px;
@@ -28,12 +28,12 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" th:href="@{/}">Gestión de Estudiantes</a>
+                <a class="navbar-brand" th:href="@{/}">Student management</a>
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li><a th:href="@{/students/create}">Nuevo Estudiante</a></li>
-                    <li><a th:href="@{/students/list}">Listado</a></li>
+                    <li><a th:href="@{/students/create}">Create New student</a></li>
+                    <li><a th:href="@{/students/list}">Students List</a></li>
                 </ul>
             </div>
         </div>
@@ -42,20 +42,21 @@
     <div class="container" style="margin-top: 80px;">
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <h3 class="panel-title">Detalles del Estudiante</h3>
+                <h3 class="panel-title">Student details</h3>
             </div>
             
             <div class="panel-body">
                 <!-- Información Básica -->
                 <div class="detail-section">
-                    <h3 class="detail-title">Información Personal</h3>
+                    <h3 class="detail-title">Personal information</h3>
                     <div class="row">
                         <div class="col-md-6">
-                            <p><span class="detail-label">Nombre:</span> <span th:text="${student.firstName}"></span></p>
-                            <p><span class="detail-label">Apellido:</span> <span th:text="${student.lastName}"></span></p>
+                            <p><span class="detail-label">Name:</span> <span th:text="${student.firstName}"></span></p>
+                            <p><span class="detail-label">Middlename:</span> <span th:text="${student.middleName}"></span></p>
+                            <p><span class="detail-label">Lastname:</span> <span th:text="${student.lastName}"></span></p>
                         </div>
                         <div class="col-md-6">
-                            <p><span class="detail-label">Género:</span> <span th:text="${student.gender}"></span></p>
+                            <p><span class="detail-label">Gender:</span> <span th:text="${student.gender}"></span></p>
                             <p><span class="detail-label">ID:</span> <span th:text="${student.studentId}"></span></p>
                         </div>
                     </div>
@@ -63,15 +64,15 @@
                 
                 <!-- Correos Electrónicos -->
                 <div class="detail-section">
-                    <h3 class="detail-title">Correos Electrónicos</h3>
-                    <div th:if="${student.emails.empty}" class="alert alert-warning">
-                        No hay correos electrónicos registrados
-                    </div>
+                    <h3 class="detail-title">Email's</h3>
+                    <!-- <div th:if="${student.emails.empty}" class="alert alert-warning">
+                        No Emails registered
+                    </div> -->
                     <table th:unless="${student.emails.empty}" class="table table-bordered table-condensed">
                         <thead>
                             <tr class="active">
-                                <th>Correo Electrónico</th>
-                                <th>Tipo</th>
+                                <th>Email</th>
+                                <th>Type</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -85,17 +86,17 @@
                 
                 <!-- Teléfonos -->
                 <div class="detail-section">
-                    <h3 class="detail-title">Teléfonos</h3>
-                    <div th:if="${student.phones.empty}" class="alert alert-warning">
-                        No hay teléfonos registrados
-                    </div>
+                    <h3 class="detail-title">Phones</h3>
+                    <!-- <div th:if="${student.phones.empty}" class="alert alert-warning">
+                        No phones registered
+                    </div> -->
                     <table th:unless="${student.phones.empty}" class="table table-bordered table-condensed">
                         <thead>
                             <tr class="active">
-                                <th>Número Completo</th>
-                                <th>Tipo</th>
-                                <th>Código País</th>
-                                <th>Código Área</th>
+                                <th>Complete Phone Number</th>
+                                <th>Type</th>
+                                <th>Country Code</th>
+                                <th>Area Code</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -111,17 +112,17 @@
                 
                 <!-- Direcciones -->
                 <div class="detail-section">
-                    <h3 class="detail-title">Direcciones</h3>
-                    <div th:if="${student.addresses.empty}" class="alert alert-warning">
-                        No hay direcciones registradas
-                    </div>
+                    <h3 class="detail-title">Addresses</h3>
+                    <!-- <div th:if="${student.addresses.empty}" class="alert alert-warning">
+                        No addresses registered
+                    </div> -->
                     <table th:unless="${student.addresses.empty}" class="table table-bordered table-condensed">
                         <thead>
                             <tr class="active">
-                                <th>Dirección</th>
-                                <th>Ciudad</th>
-                                <th>Estado</th>
-                                <th>Código Postal</th>
+                                <th>Address</th>
+                                <th>City</th>
+                                <th>State</th>
+                                <th>Postal Code</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -137,10 +138,10 @@
                 
                 <div class="form-group">
                     <a th:href="@{/students/list}" class="btn btn-default">
-                        <span class="glyphicon glyphicon-arrow-left"></span> Volver al Listado
+                        <span class="glyphicon glyphicon-arrow-left"></span> Back to student list
                     </a>
                     <a th:href="@{/students/update/{id}(id=${student.studentId})}" class="btn btn-primary">
-                        <span class="glyphicon glyphicon-edit"></span> Editar
+                        <span class="glyphicon glyphicon-edit"></span> Update
                     </a>
                 </div>
             </div>

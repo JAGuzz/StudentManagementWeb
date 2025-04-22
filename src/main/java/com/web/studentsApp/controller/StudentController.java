@@ -145,6 +145,7 @@ public class StudentController {
             @RequestParam(value = "addAddress", required = false) String addAddress) {
 
         studentDto.setStudentId(id);
+        
         if (addEmail != null) {
             studentDto.getEmails().add(new EmailDto());
         } else if (addPhone != null) {

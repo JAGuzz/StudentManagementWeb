@@ -22,6 +22,7 @@ public class StudentMapper {
 
         public static Student updateStudentFromDto(StudentDto dto, Student student) {
                 student.setFirstName(dto.getFirstName());
+                student.setMiddleName(dto.getMiddleName());
                 student.setLastName(dto.getLastName());
                 student.setGender(dto.getGender());
                 student.setUpdatedOn(LocalDateTime.now());
