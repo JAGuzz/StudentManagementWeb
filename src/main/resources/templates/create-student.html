@@ -89,7 +89,7 @@
                             </div>
 
                             <!-- Número de teléfono -->
-                            <div class="col-md-4"
+                            <div class="col-md-6"
                                 th:classappend="${#fields.hasErrors('phones[' + itemStat.index + '].phoneNumber')} ? 'has-error'">
                                 <input type="text" class="form-control"
                                     th:field="*{phones[__${itemStat.index}__].phoneNumber}" placeholder="Número"
@@ -106,13 +106,7 @@
                                     </option>
                                 </select>
                             </div>
-                            <!-- Botón de eliminar teléfono -->
-                            <div class="col-md-2">
-                                <a th:href="@{'/students/' + ${studentDto.studentId} + '/delete-phone/' + ${phone.phoneNumber}}"
-                                    class="btn btn-danger btn-md">
-                                    Eliminar
-                                </a>
-                            </div>
+                            
                         </div>
                     </div>
 
@@ -126,7 +120,7 @@
                     <label>Correos Electrónicos</label>
                     <div id="emails-container">
                         <div class="form-group row" th:each="email, itemStat : *{emails}">
-                            <div class="col-md-6">
+                            <div class="col-md-9">
                                 <input type="email" class="form-control"
                                     th:field="*{emails[__${itemStat.index}__].email}" />
                             </div>
@@ -136,18 +130,7 @@
                                     </option>
                                 </select>
                             </div>
-                            <!-- Botón de eliminar email -->
-                            <div class="col-md-3">
-                                <a th:href="@{'/students/' + ${studentDto.studentId} + '/delete-email/' + ${email.email}}"
-                                    class="btn btn-danger btn-md">
-                                    Eliminar
-                                </a>
-                            </div>
-                            <div class="col-md-12">
-                                <span class="help-block"
-                                    th:if="${#fields.hasErrors('emails[' + itemStat.index + '].email')}"
-                                    th:errors="*{emails[__${itemStat.index}__].email}"></span>
-                            </div>
+                            
 
                         </div>
                     </div>
@@ -210,15 +193,7 @@
                                         th:if="${#fields.hasErrors('addresses[' + iterStat.index + '].zipPostcode')}"
                                         th:errors="*{addresses[__${iterStat.index}__].zipPostcode}"></span>
                                 </div>
-                                <!-- Botón de eliminar dirección -->
-                                <div class="col-md-6">
-                                    <label class="control-label">Eliminar Direccion</label>
-                                    <br>
-                                    <a th:href="@{'/students/' + ${studentDto.studentId} + '/delete-address/' + ${address.addressId}}"
-                                        class="btn btn-danger btn-md">
-                                        Eliminar
-                                    </a>
-                                </div>
+                                
                             </div>
                         </div>
 
